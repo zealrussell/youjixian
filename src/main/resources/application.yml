@@ -1,0 +1,44 @@
+spring:
+  thymeleaf:
+    cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+  web:
+    resources:
+      static-locations: classpath:/static/
+      add-mappings: true
+  freemarker:
+    cache: false
+    template-loader-path: classpath:/templates/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.15.191.2:3306/seckill?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: zeal
+    password: 1234
+    hikari:
+      pool-name: DateHikariCP
+      minimum-idle: 5
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      auto-commit: true
+      max-lifetime: 180000
+      connection-timeout: 30000
+#    type: com.alibaba.druid.pool.DruidDataSource
+  data:
+    redis:
+      port: 6379
+      password: 1234
+      host: 106.15.191.2
+      database: 0
+      timeout: 10000ms
+      lettuce:
+        pool:
+          max-active: 8
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  type-aliases-package: com.zeal.youjixian.pojo
+# mybatis sql打印级别
+logging:
+  level:
+    com.zeal.youjixian.mapper: debug
